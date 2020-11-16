@@ -20,8 +20,8 @@ connection = mysql.connect()
 connection.autocommit(True)
 cursor = connection.cursor()
 
-# Write a function named `init_todo_db` which initializes the todo db
-# Create P table within sqlite db and populate with sample data
+# Write a function named `init_todo_db` which initializes the todo db,
+# Create P table within sqlite db and populate with sample data,
 # Execute the code below only once.
 def init_phonebook_db():
     drop_table = 'DROP TABLE IF EXISTS phonebook.phonebook;'
@@ -45,7 +45,7 @@ def init_phonebook_db():
     cursor.execute(data)
 
 # Write a function named `find_persons` which finds persons' record using the keyword from the phonebook table in the db,
-# and returns result as list of dictionary 
+# and returns result as list of dictionary,
 # `[{'id': 1, 'name':'XXXX', 'number': 'XXXXXX'}]`.
 def find_persons(keyword):
     query = f"""
@@ -60,7 +60,7 @@ def find_persons(keyword):
 
 
 # Write a function named `insert_person` which inserts person into the phonebook table in the db,
-# and returns text info about result of the operation
+# and returns text info about result of the operation.
 def insert_person(name, number):
     query = f"""
     SELECT * FROM phonebook WHERE name like '{name.strip().lower()}';
@@ -130,7 +130,7 @@ def find_records():
         return render_template('index.html', show_result=False, developer_name='YourName')
 
 # Write a function named `add_record` which inserts new record to the database using `GET` and `POST` methods,
-# using template files named `add-update.html` given under `templates` folder
+# using template files named `add-update.html` given under `templates` folder,
 # and assign to the static route of ('add')
 @app.route('/add', methods=['GET', 'POST'])
 def add_record():
